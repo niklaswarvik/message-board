@@ -12,10 +12,9 @@ module.exports = function(app, express) {
 		.post((req, res) => {
 
 			var user = req.body.user || guid();
-
+			var message = req.body.message;
 			var post = {
-				user : req.body.user,
-				message: req.body.message,
+				user, message,
 				time: Date.now()
 			}
 
