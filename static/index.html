@@ -63,7 +63,7 @@
             </tbody>
         </table>
         <div ng-if="!ctrl.messages.length" class="text-center">No messages</div>
-        <form method="post" action="/api/messages" ng-submit="postMessage(message)">
+        <form method="post" action="/api/messages" ng-submit="ctrl.postMessage(message)">
             <label for="message">Message:</label>
             <textarea class="form-control" id="message" ng-model="message"></textarea><br>
             <button type="submit" class="btn btn-default pull-right">Post message</button>
