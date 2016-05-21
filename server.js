@@ -1,13 +1,13 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+
 var app = express();
 
-var messages = [];
 
-app.route('/')
-	.get(function(req, res, next) {
-		res.send('Sug Balle');
-	});
+app.use(bodyParser.json());
 
 
 
+var routes = require('./apiRoutes')(app, express);
+app.use('/api', routes);
 app.listen(3000);
