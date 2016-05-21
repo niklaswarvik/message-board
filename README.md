@@ -1,1 +1,19 @@
 # message-board
+
+tl;dr: Post messages and have F.-UnÖ
+
+http://46.101.186.241/
+
+## TODO: 
+- favion.ico
+- Socket transfer protocol for real-time posting
+- Giphy embedding (hashtags/extracted keywords?)
+- Message expiration (timebomb, snapchat style)
+- Citation of previos messages
+- Message storage in db (NoSQL)
+- Buy domain
+- SSL cert
+- User cache (cookies/local storage)
+- SillyImage profile pictures TBA
+- Donor page (+payal etc.)
+- Spotify link postage integration
