@@ -23,8 +23,8 @@
                         return res.data;
                     });
                 };
-                this.post = function(message) {
-                    return $http.post('/api/messages', { message })
+                this.post = function(message, user) {
+                    return $http.post('/api/messages', { message, user })
                     .then(function(res){
                         return res.data;
                     })
@@ -36,8 +36,9 @@
                     vm.messages = messages;
                 });
                 this.postMessage = function(message) {
-                    Messages.post(message).then(function(message) {
-                        vm.messages.push(message);    
+                    Messages.post(message, vm.user).then(function(message) {
+                        vm.messages.push(message);
+                        vm.user = message.user;
                     });
                 };
             });
@@ -60,7 +61,7 @@
         <table class="table" ng-if="ctrl.messages.length">
             <thead><tr><th>Message</th><th>Details</th></tr></thead>
             <tbody>
-                <tr ng-repeat="entry in ctrl.messages" class="animated message">
+                <tr ng-repeat="entry in ctrl.messages | orderBy:'-time'" class="animated message">
                     <td>{{entry.message}}</td>
                     <td>by {{entry.user}} ({{entry.time | date}})</td>
                 </tr>
