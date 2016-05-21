@@ -1,6 +1,7 @@
 
 var messages = [];
-
+var generateName = require('sillyname');
+var messageCap = 50;
 
 module.exports = function(app, express) {
 	var router = express.Router();
@@ -11,14 +12,18 @@ module.exports = function(app, express) {
 		})
 		.post((req, res) => {
 
-			var user = req.body.user || guid();
+			while(messages.length > 50) {
+				messages.pop();
+			}
+
+			var user = req.body.user || generateName();
 			var message = req.body.message;
 			var post = {
 				user, message,
 				time: Date.now()
 			}
 
-			messages.push(post);
+			messages.unshift(post);
 
 			res.send(post);
 		});
