@@ -63,7 +63,7 @@
             <tbody>
                 <tr ng-repeat="entry in ctrl.messages | orderBy:'-time'" class="animated message">
                     <td>{{entry.message}}</td>
-                    <td>by {{entry.user}} ({{entry.time | date}})</td>
+                    <td>by {{entry.user}} ({{entry.time | date:'short'}})</td>
                 </tr>
             </tbody>
         </table>
