@@ -24,7 +24,10 @@
                     });
                 };
                 this.post = function(message) {
-                    return $http.post('/api/messages', { message });
+                    return $http.post('/api/messages', { message })
+                    .then(function(res){
+                        return res.data;
+                    })
                 };
             })
             .controller('MainCtrl',function(Messages) {
@@ -33,8 +36,9 @@
                     vm.messages = messages;
                 });
                 this.postMessage = function(message) {
-                    Messages.post(message);
-                    vm.messages.push(message);
+                    Messages.post(message).then(function(message) {
+                        vm.messages.push(message);    
+                    });
                 };
             });
     </script>
@@ -63,7 +67,7 @@
             </tbody>
         </table>
         <div ng-if="!ctrl.messages.length" class="text-center">No messages</div>
-        <form method="post" action="/api/messages" ng-submit="ctrl.postMessage(message)">
+        <form ng-submit="ctrl.postMessage(message)">
             <label for="message">Message:</label>
             <textarea class="form-control" id="message" ng-model="message"></textarea><br>
             <button type="submit" class="btn btn-default pull-right">Post message</button>
