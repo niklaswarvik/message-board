@@ -5,7 +5,7 @@ var morgan = require('morgan');
 
 var app = express();
 
-app.use(morgan());
+app.use(morgan('combined'));
 app.use(bodyParser.json());
 
 
