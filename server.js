@@ -16,3 +16,4 @@ app.listen(3000);
 app.get('/',(err, res) => {
 	res.sendFile(path.join(__dirname, '/static', 'index.html'));
 });
+app.listen(80);
