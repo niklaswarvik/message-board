@@ -6,6 +6,7 @@ http://46.101.186.241/
 
 ## TODO: 
 - favion.ico
+- clear message on post
 - Socket transfer protocol for real-time posting
 - Giphy embedding (hashtags/extracted keywords?)
 - Message expiration (timebomb, snapchat style)
