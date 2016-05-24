@@ -18,3 +18,5 @@ http://46.101.186.241/
 - SillyImage profile pictures TBA
 - Donor page (+payal etc.)
 - Spotify link postage integration
+- Change font, font size and font color
+- Add a changelog to the website
